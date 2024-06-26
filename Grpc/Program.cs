@@ -4,11 +4,11 @@ using Grpc.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddGrpc((opt) => {
 // NOTE: uncomment to enable compression
-// builder.Services.AddGrpc((opt) => {
 //     opt.ResponseCompressionAlgorithm = "gzip";
 //     opt.ResponseCompressionLevel = CompressionLevel.SmallestSize;
-// });
+});
 
 var app = builder.Build();
 
