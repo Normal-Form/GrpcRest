@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+package student;
+
+service StudentData {
+    rpc GetList (GetRequest) returns (GetReply);
+}
+
+message GetRequest {
+}
+
+message GetReply {
+  StudentList StudentList = 1;
+}
+
+// Define the ContactInfo message
+message ContactInfo {
+  string email = 1;
+  string phone = 2;
+}
+
+// Define the Address message
+message Address {
+  string street = 1;
+  string city = 2;
+  string state = 3;
+  string zip = 4;
+}
+
+// Define the Course message
+message Course {
+  string courseId = 1;
+  string courseName = 2;
+  string grade = 3;
+}
+
+// Define the AcademicInfo message
+message AcademicInfo {
+  string major = 1;
+  string year = 2;
+  double gpa = 3;
+  repeated Course courses = 4;
+}
+
+// Define the ExtracurricularActivity message
+message ExtracurricularActivity {
+  int32 activityId = 1;
+  string activityName = 2;
+  string role = 3;
+}
+
+// Define the Student message
+message Student {
+  int32 id = 1;
+  string firstName = 2;
+  string lastName = 3;
+  int32 age = 4;
+  string gender = 5;
+  ContactInfo contactInfo = 6;
+  Address address = 7;
+  AcademicInfo academicInfo = 8;
+  repeated ExtracurricularActivity extracurricularActivities = 9;
+}
+
+// Define the StudentList message
+message StudentList {
+  repeated Student students = 1;
+}
